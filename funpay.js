@@ -27,7 +27,6 @@ const getOrders = async (dom) => {
 const processSniping = async (lot) => {
     const dom = await getLotDOM(lot.url)
     const orders = await getOrders(dom)
-    console.log(orders)
     const filteredOrders = orders.filter(order => {
         return order.user.online && order.stock >= lot.minStock && order.price <= lot.priceThreshold
     })
