@@ -1,0 +1,14 @@
+{
+  "name": "funpay-sniper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "audic": "^3.0.1",
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "normalize-url": "^8.0.0",
+    "prompt-sync": "^4.2.0"
+  },
+  "type": "module"
+}
