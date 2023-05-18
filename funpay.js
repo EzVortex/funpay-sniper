@@ -15,7 +15,7 @@ const getOrders = async (dom) => {
         const element = $(item)
         return {
             url: element.attr('href'),
-            stock: +element.find('.tc-amount').text().split(' ')[0],
+            stock: +element.find('.tc-amount').text().replace(/[^0-9]/g, ''),
             price: +element.find('.tc-price').html().split('<div>')[1].split(' <span')[0],
             user: {
                 online: element.find('.media-user').hasClass('online')
@@ -27,6 +27,7 @@ const getOrders = async (dom) => {
 const processSniping = async (lot) => {
     const dom = await getLotDOM(lot.url)
     const orders = await getOrders(dom)
+    console.log(orders)
     const filteredOrders = orders.filter(order => {
         return order.user.online && order.stock >= lot.minStock && order.price <= lot.priceThreshold
     })
